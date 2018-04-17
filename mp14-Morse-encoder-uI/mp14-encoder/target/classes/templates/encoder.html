@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>encoder program</title>
+</head>
+<body>
+<form action="/encoder" method="post">
+    <div>
+        <input class="form-control" name="encoder" placeholder="please enter the text you want Encrypts it"  type="text"/>
+        <button class="btn btn-primary" type="submit">encoder</button>
+        <span th:text="${enocdeMessage}"> </span>
+    </div>
+</form>
+    </body>
+</html>

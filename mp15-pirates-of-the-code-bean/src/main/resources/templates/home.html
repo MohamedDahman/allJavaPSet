@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form  th:action="@{/home}" th:object="${mermaid}"  method="post">
+    <div>
+        <button  name="btn1" id="btn1" value="one" type="submit" th:disabled="${!mermaid}">Mermaid</button>
+    </div>
+</form>
+</br>
+
+
+<form  th:action="@{/home}" th:object="${tear}"  method="post">
+    <div>
+        <button  name="btn2" id="btn2" value="two"  type="submit" th:disabled="${!tear}" >Tear</button>
+    </div>
+</form>
+</br>
+<form  th:action="@{/home}" th:object="${chalice}"  method="post">
+    <div>
+        <button  name="btn3" id="btn3" value="three"  type="submit" th:disabled="${!chalice}">Chalice</button>
+    </div>
+</form>
+</br>
+<form  th:action="@{/home}" th:object="${drink}"  method="post">
+    <div>
+        <button name="btn4" id="btn4" value="four"   type="submit" th:disabled="${!drink}">Drink</button>
+    </div>
+</form>
+</br>
+<input type="text" th:value="*{value}"/><br />
+<!--
+
+mermaid
+<div th:text="${mermaid}"></div>
+Tear
+<div th:text="${tear}"></div>
+
+Chalice
+<div th:text="${chalice}"></div>
+Drink
+<div th:text="${drink}"></div>
+-->
+
+
+
+</body>
+</html>

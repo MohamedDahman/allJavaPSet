@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: pirates-of-the-code-bean-3
+  datasource:
+    url: ${REFUGEESCODE_MYSQL_URL}
+    username: ${REFUGEESCODE_MYSQL_USERNAME}
+    password: ${REFUGEESCODE_MYSQL_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
