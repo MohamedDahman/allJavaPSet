@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+
+<h2>My ToDo List</h2>
+
+<table border="1">
+    <thead>
+    <td  style="display:none;"></td>
+    <td style="width: 80%;">Description</td>
+    <td>done/Action</td>
+    </thead>
+<body>
+
+
+    <tr th:each="todo :${allToDo}">
+        <form th:action="@{/todos}" th:method="PUT">
+            <td style="display:none;"><input type="text"  name="id1" id="id1" th:value="${todo.id}" /> </td>
+            <td th:text="${todo.description}">2</td>
+            <td th:if="${todo.done}==true" th:text="${todo.done}">2</td>
+            <td th:if="${todo.done}==false"><button type="submit">done</button></td>
+            </div>
+        </form>
+
+    </tr>
+</body>
+</table>
+<br />
+<form th:action="@{/todos}" th:object="${newToDo}" method="post">
+    <label>Description</label><br />
+    <input type="text" th:field="*{description}"/></br>
+</br>
+    <button type="submit">Submit</button>
+  </form>
+
+<br />
+
+<input type="text" name="val" id="val" value=""  placeholder="Username" autofocus="autofocus" />
+
+<br />
+<br />
+
+<button onclick="myFunction()">Click me</button>
+<br />
+<br />
+
+<select id="dd" multiple='multiple' size="4">
+    <option selected disabled hidden>Choose here</option>
+    <option >One</option>
+    <option >Two</option>
+    <option >Three</option>
+    <option >Four</option>
+    <option >Five</option>
+</select>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    document.getElementById("dd").innerHTML += "<option>"+document.getElementById("val").value +"</option>";
+}
+</script>
+
+
+<br />
+<br />
+
+<button onclick="sendData()">send me</button>
+
+
+<script>
+function sendData() {
+        var xhr = new XMLHttpRequest();
+        var url = "http://localhost:9002/todos";
+        xhr.open("POST", url, true);
+        console.log("dd");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                    //console.log(json.email + ", " + json.password);
+            }
+        };
+            var data = JSON.stringify({"id":"920", "description":"something ewwwrror"});
+            xhr.send(data);
+
+}
+</script>
+
+</body>
+</html>

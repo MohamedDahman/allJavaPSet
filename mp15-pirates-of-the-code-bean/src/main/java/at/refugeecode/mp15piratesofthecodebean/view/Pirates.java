@@ -48,11 +48,11 @@ public class Pirates {
         return  value;
     }
 
-
     @PostMapping("/home")
     String getMermaid(@RequestBody String btn1,@RequestBody String btn2,@RequestBody String btn3,@RequestBody String btn4){
         if (btn1.equalsIgnoreCase("btn1=one")) {
             mermaid = false;
+            value="";
             tear = true;
         }
         if (btn2.equalsIgnoreCase("btn2=two")){
